@@ -56,26 +56,25 @@ void Logger::log(std::string msg, LOG_LEVEL level)
     log_file << f_output;
 }
 
-bool Logger::name_is_valid(std::string name)
-{
+  bool name_is_valid(std::string name) {
     // check that each character is allowed
     for (char c : name) {
-        int ascii = c;
-        // make sure ascii isnt a special exception
-        if (ascii != 32 && ascii != 45 && ascii != 95) {
-            // check range 48-57
-            if (ascii < 48 || (ascii > 57 && ascii < 65))
-                return false;
-            // check range 65-90
-            else if (ascii < 65 || (ascii > 90 && ascii < 97))
-                return false;
-            // check range 97-122
-            else if (ascii < 97 || ascii > 122)
-                return false;
-        }
+      int ascii = c;
+      // make sure ascii isnt a special exception
+      if (ascii != 32 && ascii != 45 && ascii != 95) {
+        // check range 48-57
+        if (ascii < 48 || (ascii > 57 && ascii < 65))
+          return false;
+        // check range 65-90
+        else if ((ascii > 57 && ascii < 65) || (ascii > 90 && ascii < 97))
+          return false;
+        // check range 97-122
+        else if ((ascii > 90 && ascii < 97) || ascii > 122)
+          return false;
+      }
     }
     return true;
-}
+  }
 
 std::string Logger::get_current_time()
 {

@@ -1,5 +1,5 @@
 [package]
-name = "LogCore"
+name = "logcore"
 version = "0.1.0"
 std = 17
 
